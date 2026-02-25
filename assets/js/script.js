@@ -6,6 +6,18 @@
 //         Ela vai controlar quantas tarefas existem na lista.
 let contadorTarefas = 0;
 
+// Adiciona listener para Enter no input
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("inputTarefa");
+  if (input) {
+    input.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        adicionarTarefa();
+      }
+    });
+  }
+});
+
 // ============================================================
 // FUNÇÃO: adicionarTarefa
 // Objetivo: Ler o valor do input, criar um <li> com o texto
@@ -128,11 +140,11 @@ function atualizarContador() {
   //  - Se contadorTarefas === 1: "1 tarefa na lista."
   //  - Caso contrário: `${contadorTarefas} tarefas na lista.`
   //  Dica: use um if / else if / else
-  if(contadorTarefas === 0){
+  if (contadorTarefas === 0) {
     contador.innerHTML = "Nenhuma tarefa adicionada.";
-  }else if(contadorTarefas === 1){
+  } else if (contadorTarefas === 1) {
     contador.innerHTML = "Uma tarefa na lista";
-  }else{
+  } else {
     contador.innerHTML = `${contadorTarefas} tarefas na lista.`;
   }
 
